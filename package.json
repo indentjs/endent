@@ -1,0 +1,39 @@
+{
+  "name": "endent",
+  "version": "0.9.0",
+  "description": "➡️ ES6 string tag that endows indentation from multi-line strings",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "scripts": {
+    "build": "babel index.js --out-file dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ZhouHansen/endent.git"
+  },
+  "author": {
+    "name": "zhouhancheng",
+    "email": "z308114274@gmail.com"
+  },
+  "keywords": [
+    "dedent",
+    "tag",
+    "multi-line string",
+    "es6"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "flow-bin": "^0.38.0",
+    "jest": "^18.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ZhouHansen/endent/issues"
+  },
+  "homepage": "https://github.com/ZhouHansen/endent#readme"
+}
