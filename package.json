@@ -1,6 +1,6 @@
 {
   "name": "endent",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "➡️ ES6 string tag that endows indentation from multi-line strings",
   "main": "dist/index.js",
   "files": [
@@ -35,5 +35,9 @@
   "bugs": {
     "url": "https://github.com/ZhouHansen/endent/issues"
   },
-  "homepage": "https://github.com/ZhouHansen/endent#readme"
+  "homepage": "https://github.com/ZhouHansen/endent#readme",
+  "dependencies": {
+    "dedent": "^0.7.0",
+    "objectorarray": "^1.0.1"
+  }
 }
