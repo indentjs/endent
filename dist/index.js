@@ -18,7 +18,7 @@ exports.default = endent;
 var ENDENT_ID = 'twhZNwxI1aFG3r4';
 
 function endent(strings) {
-  var raw = typeof strings === "string" ? [strings] : strings.raw;
+  var raw = typeof strings === 'string' ? [strings] : strings.raw;
 
   var result = '';
 
