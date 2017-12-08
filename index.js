@@ -5,7 +5,7 @@ export default endent
 const ENDENT_ID = 'twhZNwxI1aFG3r4'
 
 function endent (strings, ...values) {
-  const raw = typeof strings === "string" ? [strings] : strings.raw
+  const raw = typeof strings === 'string' ? [strings] : strings.raw
 
   let result = ''
 
@@ -26,7 +26,9 @@ function endent (strings, ...values) {
           }
         })
       } else {
-        result += values[i]
+        var value = typeof values[i] === 'string' ? `"${values[i]}"` : values[i]
+
+        result += value
       }
     }
   }

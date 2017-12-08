@@ -43,7 +43,9 @@ function endent(strings) {
           }
         });
       } else {
-        result += values[i];
+        var value = typeof values[i] === 'string' ? '"' + values[i] + '"' : values[i];
+
+        result += value;
       }
     }
   }

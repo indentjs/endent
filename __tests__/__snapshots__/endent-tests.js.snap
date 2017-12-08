@@ -1,0 +1,32 @@
+exports[`endent only endent object or array 1`] = `
+"module.exports = store
+
+function store (state, emitter) {
+  emitter.on(\"DOMContentLoaded\", function () {
+    state[\"someobj\"] = {
+      \"contact\": {
+        \"jack\": \"123456\",
+        \"tom\": \"654321\"
+      },
+      \"name\": \"template\",
+      \"color\": \"blue\",
+      \"animals\": [
+        \"bear\",
+        \"fish\",
+        \"dog\",
+        \"cat\"
+      ]
+    }
+    state[\"colors\"] = [
+      \"red\",
+      \"pink\",
+      \"white\"
+    ]
+    state[\"name\"] = \"jack\"
+    state[\"number\"] = 123
+    state[\"Iamundefined\"] = undefined
+    state[\"Iamnull\"] = null
+    state[\"Iamregexp\"] = /abc/
+  })
+}"
+`;
