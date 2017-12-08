@@ -1,4 +1,4 @@
-# endent [![stability][stability-image]][stability-index]
+# Endent [![stability][stability-image]][stability-index]
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![dm][dm-image]][npm-url]
@@ -17,8 +17,8 @@ An ES6 string tag that endows some indentation. Recommnend use it with [dedent](
 
 ```js
 
-import endent from 'endent'
-import dedent from 'dedent'
+import dedent from "dedent"
+import endent from "endent"
 
 function usageExample () {
   var someobj = {
