@@ -1,7 +1,7 @@
 ## endent [![stability][stability-image]][stability-index]
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
-[![dm-image][dm]][npm-url]
+[![dm][dm-image]][npm-url]
 
 [stability-image]: https://img.shields.io/badge/stability-stable-green.svg
 [stability-index]: https://nodejs.org/api/documentation.html#documentation_stability_index
