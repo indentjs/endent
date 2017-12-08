@@ -1,4 +1,4 @@
-## endent [![stability][stability-image]][stability-index]
+# endent [![stability][stability-image]][stability-index]
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![dm][dm-image]][npm-url]
@@ -13,7 +13,7 @@
 
 An ES6 string tag that endows some indentation. Recommnend use it with [dedent](https://github.com/dmnd/dedent)! May help you generate pretty javascript template with dynamic json.
 
-### Usage
+## Usage
 
 ```js
 
