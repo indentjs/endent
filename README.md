@@ -23,8 +23,8 @@ import dedent from 'dedent'
 function usageExample () {
   var someobj = {
     contact: {
-      jack: "123456",
-      tom: "654321"
+      jack: 123456,
+      tom: 654321
     },
     color: "blue",
     animals: [ "bear", "fish", "dog", "cat"]
@@ -70,8 +70,8 @@ module.exports = store
     emitter.on("DOMContentLoaded", function () {
       state["someobj"] = {
 "contact": {
-  "jack": "123456",
-  "tom": "654321"
+  "jack": 123456,
+  "tom": 654321
 },
 "color": "blue",
 "animals": [
@@ -94,8 +94,8 @@ function store (state, emitter) {
   emitter.on("DOMContentLoaded", function () {
     state["someobj"] = {
       "contact": {
-        "jack": "123456",
-        "tom": "654321"
+        "jack": 123456,
+        "tom": 654321
       },
       "color": "blue",
       "animals": [
