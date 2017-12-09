@@ -11,7 +11,7 @@
 [travis-url]: https://travis-ci.org/indentjs/endent
 [dm-image]: http://img.shields.io/npm/dm/endent.svg?style=flat-square
 
-An ES6 string tag that endows some indentation. Recommnend use it with [dedent](https://github.com/dmnd/dedent)! May help you generate pretty javascript template with dynamic json.
+An ES6 string tag that endows suitable indentation when you insert some object or array to your tagged literals. Recommnend use it with [dedent](https://github.com/dmnd/dedent)! May help you generate pretty javascript template with dynamic json.
 
 ## Usage
 
