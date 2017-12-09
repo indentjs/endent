@@ -14,7 +14,7 @@ function endent (strings, ...values) {
 
     if (i < values.length) {
       if (values[i] && values[i][ENDENT_ID]) {
-        var rawlines = raw[i].split('\n')
+        var rawlines = result.split('\n')
         var l = rawlines[rawlines.length - 1].search(/\S/)
         var endentation = ' '.repeat(l)
         var valueLines = values[i][ENDENT_ID].split('\n')

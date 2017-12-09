@@ -7,8 +7,8 @@
 [stability-index]: https://nodejs.org/api/documentation.html#documentation_stability_index
 [npm-image]: https://img.shields.io/npm/v/endent.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/endent
-[travis-image]: https://img.shields.io/travis/ZhouHansen/endent.svg?style=flat-square
-[travis-url]: https://travis-ci.org/ZhouHansen/endent
+[travis-image]: https://img.shields.io/travis/indentjs/endent.svg?style=flat-square
+[travis-url]: https://travis-ci.org/indentjs/endent
 [dm-image]: http://img.shields.io/npm/dm/endent.svg?style=flat-square
 
 An ES6 string tag that endows some indentation. Recommnend use it with [dedent](https://github.com/dmnd/dedent)! May help you generate pretty javascript template with dynamic json.

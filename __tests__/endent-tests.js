@@ -1,4 +1,4 @@
-import endent from '../'
+import endent from '../endent.js'
 import dedent from 'dedent'
 
 describe('endent', () => {
@@ -14,13 +14,14 @@ describe('endent', () => {
     }
 
     var colors = ['red', 'pink', 'white']
+    var objectName = "someobj"
 
     var jsFile = dedent(endent`
       module.exports = store
 
       function store (state, emitter) {
         emitter.on("DOMContentLoaded", function () {
-          state["someobj"] = ${endent.pretty(someobj)}
+          state[${objectName}] = ${endent.pretty(someobj)}
           state["colors"] = ${endent.pretty(colors)}
           state["name"] = ${endent.pretty("jack")}
           state["number"] = ${endent.pretty(123)}
