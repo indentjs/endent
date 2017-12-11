@@ -56,13 +56,13 @@ function store (state, emitter) {
   "jack": 123456,
   "tom": 654321
 },
-"color": "blue",
+"color": "blue"
+}
   state["somejson"] = [
 "bear",
 "fish",
 "dog"
 ]
-}
 }
 
 // prettyTmpl
@@ -107,7 +107,7 @@ var prettyTmpl = endent`
 console.log(awfulTmpl + "\n\n" + prettyTmpl)
 ```
 
-```
+```js
 // awfulTmpl
 ;(function () {
   var jquery = require('jquery')
