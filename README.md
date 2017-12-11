@@ -11,7 +11,7 @@
 [travis-url]: https://travis-ci.org/indentjs/endent
 [dm-image]: http://img.shields.io/npm/dm/endent.svg?style=flat-square
 
-An ES6 string tag that makes indentation right, based on [dedent](https://github.com/dmnd/dedent).
+An ES6 string tag that makes indentation right, adds some key features to [dedent](https://github.com/dmnd/dedent).
 
 ## Feature
 
