@@ -1,8 +1,15 @@
 exports[`endent only endent object or array 1`] = `
-"module.exports = store
+"var jquery = require("jquery")
+var underscore = require("underscore")
+var bootstrap = require("bootstrap")
+
+module.exports = store
 
 function store (state, emitter) {
   emitter.on(\"DOMContentLoaded\", function () {
+    state[\"json\"] = [
+      \"abc\"
+    ]
     state[\"someobj\"] = {
       \"contact\": {
         \"jack\": \"123456\",
@@ -23,7 +30,9 @@ function store (state, emitter) {
       \"white\"
     ]
     state[\"name\"] = \"jack\"
+    state[\"name2\"] = \"tom\"
     state[\"number\"] = 123
+    state[\"number2\"] = 123
     state[\"Iamundefined\"] = undefined
     state[\"Iamnull\"] = null
     state[\"Iamregexp\"] = /abc/

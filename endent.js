@@ -1,4 +1,6 @@
+import dedent from 'dedent'
 import objectorarray from 'objectorarray'
+import parse from 'fast-json-parse'
 
 export default endent
 
@@ -13,11 +15,21 @@ function endent (strings, ...values) {
     result += raw[i]
 
     if (i < values.length) {
-      if (values[i] && values[i][ENDENT_ID]) {
+      var value = values[i]
+      var isJson = false
+
+      if (parse(value).value) {
+        value = parse(value).value
+        isJson = true
+      }
+
+      if ((value && value[ENDENT_ID]) || isJson) {
         var rawlines = result.split('\n')
         var l = rawlines[rawlines.length - 1].search(/\S/)
         var endentation = ' '.repeat(l)
-        var valueLines = values[i][ENDENT_ID].split('\n')
+        var valueJson = isJson ? JSON.stringify(value, null, 2) : value[ENDENT_ID]
+        var valueLines = valueJson.split('\n')
+
         valueLines.forEach((l, index) => {
           if (index > 0) {
             result += ('\n' + endentation + l)
@@ -25,15 +37,25 @@ function endent (strings, ...values) {
             result += l
           }
         })
-      } else {
-        var value = typeof values[i] === 'string' ? `"${values[i]}"` : values[i]
+      } else if (typeof value === 'string' && value.includes('\n')) {
+          var endentations = result.match(/(?:^|\n)( *)$/)
 
+          if (endentations && typeof value === 'string') {
+            var endentation = endentations[1]
+            result += value
+              .split('\n')
+              .map((str, i) => i === 0 ? str : `${endentation}${str}`)
+              .join('\n')
+            } else {
+              result += value
+            }
+      } else {
         result += value
       }
     }
   }
 
-  return result
+  return dedent(result)
 }
 
 endent.pretty = (data) => {

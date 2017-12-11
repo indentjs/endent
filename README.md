@@ -11,109 +11,119 @@
 [travis-url]: https://travis-ci.org/indentjs/endent
 [dm-image]: http://img.shields.io/npm/dm/endent.svg?style=flat-square
 
-An ES6 string tag that endows some indentation. Recommnend use it with [dedent](https://github.com/dmnd/dedent)! May help you generate pretty javascript template with dynamic json.
+An ES6 string tag that makes indentation right, based on [dedent](https://github.com/dmnd/dedent).
 
-## Usage
+## Feature
+
+### pretty object
 
 ```js
-
 import dedent from "dedent"
 import endent from "endent"
 
-function usageExample () {
-  var someobj = {
-    contact: {
-      jack: 123456,
-      tom: 654321
-    },
-    color: "blue",
-    animals: [ "bear", "fish", "dog", "cat"]
-  }
-
-  var colors = ["red", "pink", "white"]
-
-  var awfulTmpl = dedent`
-    module.exports = store
-
-    function store (state, emitter) {
-      emitter.on("DOMContentLoaded", function () {
-        state["someobj"] = ${JSON.stringify(someobj, null, 2)}
-        state["colors"] = ${JSON.stringify(colors, null, 2)}
-      })
-    }
-  `
-  var prettyTmpl = dedent(endent`
-    module.exports = store
-
-    function store (state, emitter) {
-      emitter.on("DOMContentLoaded", function () {
-        state["someobj"] = ${endent.pretty(someobj)}
-        state["colors"] = ${endent.pretty(colors)}
-      })
-    }
-  `)
-
-  return awfulTmpl + "\n\n" + prettyTmpl
+var someobj = {
+  contact: {
+    jack: 123456,
+    tom: 654321
+  },
+  color: "blue"
 }
-```
 
-```js
-> console.log(usageExample())
+var somejson = '["bear", "fish", "dog", "cat"]'
+
+var awfulTmpl = dedent`
+  function store (state, emitter) {
+    state["someobj"] = ${JSON.stringify(someobj, null, 2)}
+    state["somejson"] = ${JSON.stringify(JSON.parse(somejson), null, 2)}
+  }
+`
+// use endent.pretty(value) when value is object or array.
+var prettyTmpl = endent`
+  function store (state, emitter) {
+    state["someobj"] = ${endent.pretty(someobj)}
+    state["somejson"] = ${somejson}
+  }
+`
+
+console.log(awfulTmpl + "\n\n" + prettyTmpl)
 ```
 
 ```js
 // awfulTmpl
-
-module.exports = store
-
-  function store (state, emitter) {
-    emitter.on("DOMContentLoaded", function () {
-      state["someobj"] = {
+function store (state, emitter) {
+  state["someobj"] = {
 "contact": {
   "jack": 123456,
   "tom": 654321
 },
 "color": "blue",
-"animals": [
-  "bear"
+  state["somejson"] = [
+"bear",
+"fish",
+"dog"
 ]
 }
-      state["colors"] = [
-"red",
-"pink"
-]
-    })
-  }
+}
 
-
-// prettyTmpl ~
-
-module.exports = store
-
+// prettyTmpl
 function store (state, emitter) {
-  emitter.on("DOMContentLoaded", function () {
-    state["someobj"] = {
-      "contact": {
-        "jack": 123456,
-        "tom": 654321
-      },
-      "color": "blue",
-      "animals": [
-        "bear",
-        "fish",
-        "dog",
-        "cat"
-      ]
-    }
-    state["colors"] = [
-      "red",
-      "pink",
-      "white"
-    ]
-  })
+  state["someobj"] = {
+    "contact": {
+      "jack": 123456,
+      "tom": 654321
+    },
+    "color": "blue"
+  }
+  state["somejson"] = [
+    "bear",
+    "fish",
+    "dog",
+    "cat"
+  ]
 }
 ```
 
+### endows suitable indentation for multiline interpolation
+
+```js
+var dependencies = ['jquery', 'underscore', 'bootstrap']
+var dependencyTmpl = ``
+dependencies.forEach((d, i) => {
+  dependencyTmpl += `var ${d} = require("${d}")\n`
+})
+
+var awfulTmpl = dedent`
+  ;(function () {
+    ${dependencyTmpl}
+  })()
+`
+
+var prettyTmpl = endent`
+  ;(function () {
+    ${dependencyTmpl}
+  })()
+`
+
+console.log(awfulTmpl + "\n\n" + prettyTmpl)
+```
+
+```
+// awfulTmpl
+;(function () {
+  var jquery = require('jquery')
+var underscore = require('underscore')
+var bootstrap = require('bootstrap')
+})()
+
+
+// prettyTmpl
+;(function () {
+  var jquery = require('jquery')
+  var underscore = require('underscore')
+  var bootstrap = require('bootstrap')
+})()
+
+```
 ## License
 
 MIT
