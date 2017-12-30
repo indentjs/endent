@@ -1,14 +1,10 @@
 {
   "name": "endent",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "➡️ An ES6 string tag that makes indentation right",
-  "main": "dist/endent.js",
-  "files": [
-    "dist/endent.js"
-  ],
+  "main": "endent.js",
   "scripts": {
-    "build": "babel endent.js --out-file dist/endent.js",
-    "test": "jest"
+    "test": "tape test.js"
   },
   "repository": {
     "type": "git",
@@ -21,18 +17,9 @@
   "keywords": [
     "dedent",
     "tag",
-    "multi-line string",
-    "es6"
+    "multi-line string"
   ],
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-es2016": "^6.22.0",
-    "babel-preset-es2017": "^6.22.0",
-    "flow-bin": "^0.38.0",
-    "jest": "^18.1.0"
-  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ZhouHansen/endent/issues"
   },
@@ -40,6 +27,7 @@
   "dependencies": {
     "dedent": "^0.7.0",
     "fast-json-parse": "^1.0.3",
-    "objectorarray": "^1.0.2"
+    "objectorarray": "^1.0.3",
+    "tape": "^4.8.0"
   }
 }

@@ -1,8 +1,8 @@
-import dedent from 'dedent'
-import objectorarray from 'objectorarray'
-import parse from 'fast-json-parse'
+var dedent = require('dedent')
+var objectorarray = require('objectorarray')
+var parse = require('fast-json-parse')
 
-export default endent
+module.exports = endent
 
 const ENDENT_ID = 'twhZNwxI1aFG3r4'
 
