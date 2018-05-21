@@ -1,10 +1,10 @@
 {
   "name": "endent",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "➡️ An ES6 string tag that makes indentation right",
   "main": "endent.js",
   "scripts": {
-    "test": "tape test.js"
+    "test": "standard && tape test.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "dedent": "^0.7.0",
     "fast-json-parse": "^1.0.3",
     "objectorarray": "^1.0.3",
+    "standard": "^11.0.1",
     "tape": "^4.8.0"
   }
 }

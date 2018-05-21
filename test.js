@@ -1,7 +1,7 @@
 var test = require('tape')
 var endent = require('./')
 
-test('endent', t => {
+test('object', t => {
   t.plan(1)
 
   var json = JSON.stringify(JSON.parse('[ "abc" ]'), null, 2)
@@ -13,11 +13,11 @@ test('endent', t => {
     },
     name: 'template',
     color: 'blue',
-    animals: [ 'bear', 'fish', 'dog', 'cat']
+    animals: ['bear', 'fish', 'dog', 'cat']
   }
 
   var colors = ['red', 'pink', 'white']
-  var objectName = "someobj"
+  var objectName = 'someobj'
 
   var dependencies = ['jquery', 'underscore', 'bootstrap']
   var dependencyTmpl = ``
@@ -35,8 +35,8 @@ test('endent', t => {
         state["json"] = ${json}
         state["${objectName}"] = ${endent.pretty(someobj)}
         state["colors"] = ${endent.pretty(colors)}
-        state["name"] = "${endent.pretty("jack")}"
-        state["name2"] = "${"tom"}"
+        state["name"] = "${endent.pretty('jack')}"
+        state["name2"] = "${'tom'}"
         state["number"] = ${endent.pretty(123)}
         state["number2"] = ${123}
         state["Iamundefined"] = ${endent.pretty()}
@@ -85,5 +85,20 @@ function store (state, emitter) {
     state["Iamregexp"] = /abc/
   })
 }`)
+})
 
+test('string', t => {
+  t.plan(1)
+  const a = `
+hello
+  world`
+  const b = endent`
+    foo.
+    ${a}
+    bar.`
+  t.equal(b, `foo.
+
+hello
+  world
+bar.`)
 })

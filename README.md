@@ -2,6 +2,7 @@
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![dm][dm-image]][npm-url]
+[![js-standard-style][code-style]][standard]
 
 [stability-image]: https://img.shields.io/badge/stability-stable-green.svg
 [stability-index]: https://nodejs.org/api/documentation.html#documentation_stability_index
@@ -10,6 +11,8 @@
 [travis-image]: https://img.shields.io/travis/indentjs/endent.svg?style=flat-square
 [travis-url]: https://travis-ci.org/indentjs/endent
 [dm-image]: http://img.shields.io/npm/dm/endent.svg?style=flat-square
+[code-style]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[standard]: https://github.com/feross/standard
 
 An ES6 string tag that makes indentation right, adds some key features to [dedent](https://github.com/dmnd/dedent).
 

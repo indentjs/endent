@@ -1,6 +1,6 @@
-var dedent = require('dedent')
-var objectorarray = require('objectorarray')
-var parse = require('fast-json-parse')
+const dedent = require('dedent')
+const objectorarray = require('objectorarray')
+const parse = require('fast-json-parse')
 
 module.exports = endent
 
@@ -15,8 +15,8 @@ function endent (strings, ...values) {
     result += raw[i]
 
     if (i < values.length) {
-      var value = values[i]
-      var isJson = false
+      let value = values[i]
+      let isJson = false
 
       if (parse(value).value) {
         value = parse(value).value
@@ -24,11 +24,11 @@ function endent (strings, ...values) {
       }
 
       if ((value && value[ENDENT_ID]) || isJson) {
-        var rawlines = result.split('\n')
-        var l = rawlines[rawlines.length - 1].search(/\S/)
-        var endentation = ' '.repeat(l)
-        var valueJson = isJson ? JSON.stringify(value, null, 2) : value[ENDENT_ID]
-        var valueLines = valueJson.split('\n')
+        let rawlines = result.split('\n')
+        let l = rawlines[rawlines.length - 1].search(/\S/)
+        let endentation = ' '.repeat(l)
+        let valueJson = isJson ? JSON.stringify(value, null, 2) : value[ENDENT_ID]
+        let valueLines = valueJson.split('\n')
 
         valueLines.forEach((l, index) => {
           if (index > 0) {
@@ -38,17 +38,17 @@ function endent (strings, ...values) {
           }
         })
       } else if (typeof value === 'string' && value.includes('\n')) {
-          var endentations = result.match(/(?:^|\n)( *)$/)
+        let endentations = result.match(/(?:^|\n)( *)$/)
 
-          if (endentations && typeof value === 'string') {
-            var endentation = endentations[1]
-            result += value
-              .split('\n')
-              .map((str, i) => i === 0 ? str : `${endentation}${str}`)
-              .join('\n')
-            } else {
-              result += value
-            }
+        if (endentations && typeof value === 'string') {
+          let endentation = endentations[1]
+          result += value
+            .split('\n')
+            .map((str, i) => i === 0 ? str : `${endentation}${str}`)
+            .join('\n')
+        } else {
+          result += value
+        }
       } else {
         result += value
       }
