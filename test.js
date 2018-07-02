@@ -102,3 +102,16 @@ hello
   world
 bar.`)
 })
+
+test('issue#1', t => {
+  t.plan(1)
+  const a = '"test"'
+  const r = endent`
+    {
+      ${a}: null
+    }    
+  `
+  t.equal(r, `{
+  "test": null
+}`)
+})

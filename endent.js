@@ -26,7 +26,7 @@ function endent (strings, ...values) {
       if ((value && value[ENDENT_ID]) || isJson) {
         let rawlines = result.split('\n')
         let l = rawlines[rawlines.length - 1].search(/\S/)
-        let endentation = ' '.repeat(l)
+        let endentation = l > 0 ? ' '.repeat(l) : ''
         let valueJson = isJson ? JSON.stringify(value, null, 2) : value[ENDENT_ID]
         let valueLines = valueJson.split('\n')
 
