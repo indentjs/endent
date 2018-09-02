@@ -40,11 +40,14 @@ function endent (strings, ...values) {
       } else if (typeof value === 'string' && value.includes('\n')) {
         let endentations = result.match(/(?:^|\n)( *)$/)
 
-        if (endentations && typeof value === 'string') {
-          let endentation = endentations[1]
+        if (typeof value === 'string') {
+          let endentation = endentations ? endentations[1] : ''
           result += value
             .split('\n')
-            .map((str, i) => i === 0 ? str : `${endentation}${str}`)
+            .map((str, i) => {
+              str = (ENDENT_ID + str)
+              return i === 0 ? str : `${endentation}${str}`
+            })
             .join('\n')
         } else {
           result += value
@@ -54,8 +57,8 @@ function endent (strings, ...values) {
       }
     }
   }
-
-  return dedent(result)
+  result = dedent(result)
+  return result.split(ENDENT_ID).join('')
 }
 
 endent.pretty = (data) => {

@@ -115,3 +115,18 @@ test('issue#1', t => {
   "test": null
 }`)
 })
+
+test('issue#2', t => {
+  t.plan(1)
+
+  const r = endent`
+    foo.
+    x=${'hello\n  world'}
+    bar.
+  `
+  console.log(r)
+  t.equal(r, `foo.
+x=hello
+  world
+bar.`)
+})
