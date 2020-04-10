@@ -1,30 +1,27 @@
-var test = require('tape')
-var endent = require('./')
+var endent = require("./");
 
-test('object', t => {
-  t.plan(1)
-
-  var json = JSON.stringify(JSON.parse('[ "abc" ]'), null, 2)
+test("object", () => {
+  var json = JSON.stringify(JSON.parse('[ "abc" ]'), null, 2);
 
   var someobj = {
     contact: {
-      jack: '123456',
-      tom: '654321'
+      jack: "123456",
+      tom: "654321",
     },
-    name: 'template',
-    color: 'blue',
-    animals: ['bear', 'fish', 'dog', 'cat']
-  }
+    name: "template",
+    color: "blue",
+    animals: ["bear", "fish", "dog", "cat"],
+  };
 
-  var colors = ['red', 'pink', 'white']
-  var objectName = 'someobj'
+  var colors = ["red", "pink", "white"];
+  var objectName = "someobj";
 
-  var dependencies = ['jquery', 'underscore', 'bootstrap']
-  var dependencyTmpl = ``
+  var dependencies = ["jquery", "underscore", "bootstrap"];
+  var dependencyTmpl = ``;
 
   dependencies.forEach((d, i) => {
-    dependencyTmpl += `var ${d} = require("${d}")\n`
-  })
+    dependencyTmpl += `var ${d} = require("${d}")\n`;
+  });
 
   var jsFile = endent`
     ${dependencyTmpl}
@@ -35,8 +32,8 @@ test('object', t => {
         state["json"] = ${json}
         state["${objectName}"] = ${endent.pretty(someobj)}
         state["colors"] = ${endent.pretty(colors)}
-        state["name"] = "${endent.pretty('jack')}"
-        state["name2"] = "${'tom'}"
+        state["name"] = "${endent.pretty("jack")}"
+        state["name2"] = "${"tom"}"
         state["number"] = ${endent.pretty(123)}
         state["number2"] = ${123}
         state["Iamundefined"] = ${endent.pretty()}
@@ -44,9 +41,10 @@ test('object', t => {
         state["Iamregexp"] = ${endent.pretty(/abc/)}
       })
     }
-  `
+  `;
 
-  t.equal(jsFile, `var jquery = require("jquery")
+  expect(jsFile).toEqual(
+    `var jquery = require("jquery")
 var underscore = require("underscore")
 var bootstrap = require("bootstrap")
 
@@ -84,54 +82,56 @@ function store (state, emitter) {
     state["Iamnull"] = null
     state["Iamregexp"] = /abc/
   })
-}`)
-})
+}`
+  );
+});
 
-test('string', t => {
-  t.plan(1)
+test("string", () => {
   const a = `
 hello
-  world`
+  world`;
+
   const b = endent`
     foo.
     ${a}
-    bar.`
-  t.equal(b, `foo.
+    bar.`;
+
+  expect(b).toEqual(
+    `foo.
 
 hello
   world
-bar.`)
-})
+bar.`
+  );
+});
 
-test('issue#1', t => {
-  t.plan(1)
-  const a = '"test"'
+test("issue#1", () => {
+  const a = '"test"';
   const r = endent`
     {
       ${a}: null
     }
-  `
-  t.equal(r, `{
+  `;
+  expect(r).toEqual(`{
   "test": null
-}`)
-})
+}`);
+});
 
-test('issue#2', t => {
-  t.plan(1)
-
+test("issue#2", () => {
   const r = endent`
     foo.
-    x=${'hello\n  world'}
+    x=${"hello\n  world"}
     bar.
-  `
-  console.log(r)
-  t.equal(r, `foo.
+  `;
+  console.log(r);
+  expect(r).toEqual(
+    `foo.
 x=hello
   world
-bar.`)
-})
+bar.`
+  );
+});
 
-test('tab', t => {
-  t.plan(1)
-  t.equal(endent`foo\tbar`, 'foo\tbar')
-})
+test("tab", () => {
+  expect(endent`foo\tbar`).toEqual("foo\tbar");
+});

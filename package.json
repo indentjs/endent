@@ -4,7 +4,7 @@
   "description": "➡️ An ES6 string tag that makes indentation right",
   "main": "endent.js",
   "scripts": {
-    "test": "standard && tape test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,6 @@
     "objectorarray": "^1.0.4"
   },
   "devDependencies": {
-    "standard": "^11.0.1",
-    "tape": "^4.8.0"
+    "jest": "^25.3.0"
   }
 }
