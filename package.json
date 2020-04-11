@@ -1,6 +1,6 @@
 {
   "name": "endent",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "➡️ An ES6 string tag that makes indentation right",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
