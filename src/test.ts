@@ -1,4 +1,4 @@
-var endent = require("./");
+import endent from "./";
 
 test("object", () => {
   var json = JSON.stringify(JSON.parse('[ "abc" ]'), null, 2);
@@ -123,7 +123,6 @@ test("issue#2", () => {
     x=${"hello\n  world"}
     bar.
   `;
-  console.log(r);
   expect(r).toEqual(
     `foo.
 x=hello
