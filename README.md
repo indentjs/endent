@@ -56,13 +56,18 @@ console.log(awfulTmpl + "\n\n" + prettyTmpl);
 // awfulTmpl
 function store(state, emitter) {
   state["someobj"] = {
-    contact: {
-      jack: 123456,
-      tom: 654321,
-    },
-    color: "blue",
-  };
-  state["somejson"] = ["bear", "fish", "dog"];
+contact: {
+  jack: 123456,
+  tom: 654321,
+},
+color: "blue",
+}
+  state["somejson"] = [
+"bear", 
+"fish", 
+"dog",
+"cat"
+]
 }
 
 // prettyTmpl
@@ -73,8 +78,13 @@ function store(state, emitter) {
       tom: 654321,
     },
     color: "blue",
-  };
-  state["somejson"] = ["bear", "fish", "dog", "cat"];
+  }
+  state["somejson"] = [
+    "bear", 
+    "fish", 
+    "dog", 
+    "cat"
+  ]
 }
 ```
 
@@ -106,8 +116,8 @@ console.log(awfulTmpl + "\n\n" + prettyTmpl);
 // awfulTmpl
 (function () {
   var jquery = require("jquery");
-  var underscore = require("underscore");
-  var bootstrap = require("bootstrap");
+var underscore = require("underscore");
+var bootstrap = require("bootstrap");
 })();
 
 // prettyTmpl
