@@ -134,3 +134,12 @@ bar.`
 test("tab", () => {
   expect(endent`foo\tbar`).toEqual("foo\tbar");
 });
+
+test("trailing spaces in empty lines when splicing in text with two consecutive newlines", () => {
+  const insertion = "indented 1\n\nindented 2";
+  const output = endent`
+    foo
+      ${insertion}
+  `;
+  expect(output).toEqual("foo\n  indented 1\n\n  indented 2");
+});
